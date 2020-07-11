@@ -62,3 +62,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pg', '~> 0.18.4'
 gem 'ancestry', '~> 2.1'
+gem 'active_model_serializers'
