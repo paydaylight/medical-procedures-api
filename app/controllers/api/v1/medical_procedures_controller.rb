@@ -7,18 +7,6 @@ class Api::V1::MedicalProceduresController < Api::V1::BaseController
     render json: ::Queries::Medical::ProcedurePages.fetch(page: params[:p]).search(params[:q])
   end
 
-  def search2
-    return render json: [] if params[:q].blank?
-
-    if params[:p].present?
-      relation = ::Queries::Medical::ProcedurePages.fetch(page: params[:p])
-    else
-      relation = Medical::Procedure
-    end
-
-    render json: relation.search(params[:q])
-  end
-
   private
   def validate_query_param_presence
     raise ActionController::BadRequest.new("Query parameter 'q' must be present") if params[:q].blank?
