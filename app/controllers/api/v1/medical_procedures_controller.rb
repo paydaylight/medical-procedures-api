@@ -29,7 +29,7 @@ class Api::V1::MedicalProceduresController < Api::V1::BaseController
   end
 
   def validate_page_param_type
-    Integer(param[:p])
+    Integer(params[:p])
   rescue
     raise ActionController::BadRequest.new("Parameter 'p' must be integer")
   end
