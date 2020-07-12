@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "cee6451a-b28a-4375-8b0a-e21d1c783a61",
+		"name": "MEDICAL PROCEDURES API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "search procedures",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/medical_procedures/search?q=surg&p=jhghjk",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"medical_procedures",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "surg"
+						},
+						{
+							"key": "p",
+							"value": "jhghjk"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
