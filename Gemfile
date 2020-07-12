@@ -66,3 +66,4 @@ gem 'ancestry', '~> 2.1'
 gem 'active_model_serializers'
 gem 'pg_search'
 gem 'kaminari'
+gem "factory_bot_rails"
