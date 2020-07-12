@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 4.0.1'
 end
 
 group :development do
@@ -64,3 +65,4 @@ gem 'pg', '~> 0.18.4'
 gem 'ancestry', '~> 2.1'
 gem 'active_model_serializers'
 gem 'pg_search'
+gem 'kaminari'
