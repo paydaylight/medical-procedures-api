@@ -22,7 +22,4 @@ RSpec.describe Api::V1::MedicalProceduresController, :type => :controller do
       expect(response.status).to eq(200)
     end
   end
-
-
-
 end
