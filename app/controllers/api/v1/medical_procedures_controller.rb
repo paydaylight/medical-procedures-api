@@ -1,24 +1,12 @@
 class Api::V1::MedicalProceduresController < Api::V1::BaseController
+  include ::Api::V1::MedicalProceduresHelper
+  
   before_action :validate_query_param_presence, only: [:search]
   before_action :validate_page_param_presence, only: [:search]
   before_action :validate_page_param_type, only: [:search]
 
+  # All parameters must be passed to this method
   def search
     render json: ::Queries::Medical::ProcedurePages.fetch(page: params[:p]).search(params[:q])
-  end
-
-  private
-  def validate_query_param_presence
-    raise ActionController::BadRequest.new("Query parameter 'q' must be present") if params[:q].blank?
-  end
-
-  def validate_page_param_presence
-    raise ActionController::BadRequest.new("Page parameter 'p' must be present") if params[:p].blank?
-  end
-
-  def validate_page_param_type
-    Integer(params[:p])
-  rescue
-    raise ActionController::BadRequest.new("Parameter 'p' must be integer")
   end
 end
