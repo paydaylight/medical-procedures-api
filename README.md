@@ -1,4 +1,6 @@
 # Medical Procedures API
+accessible at medapi.unifound.me
+
 * ruby version: 2.5.1
 * rails version: 5.2.4
 * bundler version 2.1.4
@@ -15,6 +17,6 @@
 
 ### generating html documentation:
  * `rake api:docs` (generated html is already in repo)
- * Then the documentation will be accessible at `http://localhost:3000/documentation.html`
+ * Then the documentation will be accessible at `https://medapi.unifound.me/documentation.html`
 
 Postman collection is [here](/docs/api/MEDICAL%20PROCEDURES%20API.postman_collection.json)

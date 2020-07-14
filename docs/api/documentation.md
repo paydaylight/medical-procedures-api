@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://localhost:3000
+HOST: https://medapi.unifound.me
 
 # Medical Procedure Search API
 This API describes how to use /search endpoint
