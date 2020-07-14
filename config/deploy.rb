@@ -23,9 +23,8 @@ set :puma_preload_app,        true
 set :puma_worker_timeout,     nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 set :bundle_binstubs,         nil
-set :rvm_path,                '/usr/share/rvm/bin/rvm'
 set :rvm_type,                :user
-set :default_shell,           "/bin/bash -l"
+set :rvm_custom_path,         '/usr/share/rvm/'
 # set :delayed_job_workers,     2
 # set :delayed_job_pid_dir,     '/tmp'
 # set :delayed_job_queue,       :default

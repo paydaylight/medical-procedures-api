@@ -4,6 +4,7 @@ require 'capistrano/deploy'
 
 require 'capistrano/rails'
 require 'capistrano/bundler'
+require 'capistrano/rvm'
 require 'capistrano/puma'
 # require 'capistrano/delayed_job'
 # require 'capistrano/sidekiq'
@@ -13,7 +14,7 @@ install_plugin Capistrano::Puma
 
 require "capistrano/scm/git"
 install_plugin Capistrano::SCM::Git
-require 'capistrano/rvm'
+
 
 # Include tasks from other gems included in your Gemfile
 #
