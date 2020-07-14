@@ -23,6 +23,9 @@ set :puma_preload_app,        true
 set :puma_worker_timeout,     nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 set :bundle_binstubs,         nil
+set :rvm_path,                '/usr/share/rvm/bin/rvm'
+set :rvm_type,                :user
+set :default_shell,           "/bin/bash -l"
 # set :delayed_job_workers,     2
 # set :delayed_job_pid_dir,     '/tmp'
 # set :delayed_job_queue,       :default
@@ -52,12 +55,11 @@ namespace :puma do
 end
 
 namespace :deploy do
-
   desc "Make sure local git is in sync with remote."
   task :check_revision do
     on roles(:app) do
-      unless `git rev-parse HEAD` == `git rev-parse origin/#{fetch(:branch)}`
-        puts "WARNING: HEAD is not the same as origin/#{fetch(:branch)}"
+      unless `git rev-parse HEAD` == `git rev-parse origin/master`
+        puts "WARNING: HEAD is not the same as origin/master"
         puts "Run `git push` to sync changes."
         exit
       end
@@ -79,23 +81,9 @@ namespace :deploy do
     end
   end
 
-  # task :delayed_job_restart do
-  #   invoke 'delayed_job:restart'
-  # end
-
   before :starting,     :check_revision
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
-  # Not used but can be reconfigured
-  # after  :publishing,   :delayed_job_restart
 end
-
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-
-end
-
-
-# after :deploy, :submission_worker
 
