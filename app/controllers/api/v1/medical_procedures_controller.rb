@@ -7,6 +7,9 @@ class Api::V1::MedicalProceduresController < Api::V1::BaseController
 
   # All parameters must be passed to this method, otherwise bad request would be raised
   def search
-    render json: ::Queries::Medical::ProcedurePages.fetch(page: params[:p]).search(params[:q])
+    result = ::Queries::Medical::ProcedurePages.fetch(page: params[:p]).search(params[:q])
+    cache = Medical::Procedure.where(id: result.flat_map(&:child_ids))
+    children_preloader = Services::Medical::ProcedureChildren.new(cache)
+    render json: result, preloader: children_preloader
   end
 end
